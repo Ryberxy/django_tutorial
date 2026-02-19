@@ -12,7 +12,6 @@ pipeline {
             steps {
                 git branch: 'master', url: 'https://github.com/Ryberxy/django_tutorial.git'
 
-
                 sh 'pip install -r requirements.txt'
 
                 sh 'python3 manage.py test polls'
@@ -38,9 +37,6 @@ pipeline {
             }
         }
     }
-
-                sh 'pip install -r requirements.txt'
-
 
     post {
         always {
