@@ -5,7 +5,7 @@ pipeline {
         stage("Build and Test the Project") {
             agent {
                 docker { 
-                    image 'ryberxy/django_polls-test:v3'
+                    image 'ryberxy/django_polls-test:v1'
                     args '-u root:root'
                 }
             }
