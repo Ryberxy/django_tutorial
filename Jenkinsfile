@@ -37,7 +37,7 @@ pipeline {
                         image.push()
                     }
 
-                    sh 'docker rmi $DOCKER_IMAGE'
+                    sh "docker rmi ${DOCKER_IMAGE}"
                 }
             }
         }
