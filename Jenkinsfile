@@ -10,14 +10,11 @@ pipeline {
                 }
             }
             steps {
-                // Clonar el repositorio
                 git branch: 'master', url: 'https://github.com/Ryberxy/django_tutorial.git'
 
 
-                // Instalar dependencias
                 sh 'pip install -r requirements.txt'
 
-                // Ejecutar tests
                 sh 'python3 manage.py test polls'
             }
         }
@@ -31,7 +28,6 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/Ryberxy/django_tutorial.git'
 
                 script {
-                    // Build y push usando docker.withRegistry
                     docker.withRegistry('', 'docker-hub-credentials') {
                         def image = docker.build(DOCKER_IMAGE)
                         image.push()
@@ -45,7 +41,7 @@ pipeline {
 
                 sh 'pip install -r requirements.txt'
 
-                // Ejecutar tests
+
     post {
         always {
             mail to: 'maquinon447@gmail.com',
