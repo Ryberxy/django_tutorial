@@ -36,7 +36,25 @@ pipeline {
                 }
             }
         }
+
+        stage("Deploy to VPS") {
+            agent any
+            steps {
+                sshagent(credentials: ['itachi-ssh']) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no ryberxy@itachi.robemr.es '
+                        cd /home/ryberxy/app &&
+                        docker compose down &&
+                        docker pull ryberxy/django_polls:latest &&
+                        docker image prune -f &&
+                        docker compose up -d
+                        '
+                    """
+                }
+            }
+        }
     }
+    
 
     post {
         always {
