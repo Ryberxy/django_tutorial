@@ -1,6 +1,10 @@
 pipeline {
     agent none
 
+    triggers {
+        githubPush()
+    }
+
     stages {
         stage("Build and Test the Project") {
             agent {
