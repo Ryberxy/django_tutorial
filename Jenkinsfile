@@ -43,7 +43,7 @@ pipeline {
                 sshagent(credentials: ['itachi-ssh']) {
                     sh """
                         ssh -o StrictHostKeyChecking=no ryberxy@itachi.robemr.es '
-                        cd /home/ryberxy/app &&
+                        cd /home/ryberxy/Descargas/docker/polls_python/app &&
                         docker compose down &&
                         docker pull ryberxy/django_polls:latest &&
                         docker image prune -f &&
@@ -63,4 +63,4 @@ pipeline {
                  body: "El pipeline ha terminado. Estado: ${currentBuild.currentResult}"
         }
     }
-}
+}   
