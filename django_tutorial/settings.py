@@ -27,8 +27,9 @@ SECRET_KEY = '9f0h)gozf$g%6igo8&767w1xro0adm+)msxe)!eic$!fhvynb8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["tutorial.robe.org", "localhost", "www.polls.org"]
+ALLOWED_HOSTS = ["tutorial.robe.org", "localhost", "www.polls.org", "192.168.39.62", "appdocker.robemr.es"]
 
+CSRF_TRUSTED_ORIGINS = ['https://www.polls.org', 'http://192.168.39.62', 'https://appdocker.robemr.es']
 
 # Application definition
 
