@@ -2,6 +2,8 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
+RUN voy a fallar
+
 RUN apt-get update && apt-get install -y \
     gcc \
     pkg-config \
